@@ -3,6 +3,7 @@ public class array {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         int age = 5;//single
+        int num = 10;
         System.out.println(age);
 
         int[]ages = new int[10];
