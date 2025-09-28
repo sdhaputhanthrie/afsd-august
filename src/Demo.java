@@ -15,10 +15,11 @@ public class Demo {
         int studentAge = 24;
         double bankBalance = 3004.56;
         String name = "oneli";
+
         boolean isSmoke = false;
 
         System.out.println(name);
-
+        System.out.println(studentAge);
 
         int num1 = 32;
         int num2 = 21;
