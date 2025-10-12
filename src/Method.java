@@ -8,6 +8,7 @@ public class Method {
         get_total();
         get_total();
         check_value();
+        check_value2(12); // 12 - argument1
     }
     //method
     //void - return type
@@ -16,11 +17,21 @@ public class Method {
         System.out.println("hello sanadee");
     }
 
+    // normal method
     public static void check_value(){
       Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number:");
         int number = scan.nextInt();
 
+        if(number%2 == 0){
+            System.out.println("number is even");
+        }else{
+            System.out.println("number ia odd");
+        }
+    }
+    // parameterized method
+    //()parameter bracket
+    public static void check_value2(int number){
         if(number%2 == 0){
             System.out.println("number is even");
         }else{
