@@ -1,3 +1,7 @@
+// get 8 empolyee salary as a user input
+// if salary above 130000 add 12% and exiting salary
+
+// find over cost of the company
 import java.util.Scanner;
 public class Demo14 {
     public static void main(String[] args){
