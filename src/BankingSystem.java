@@ -88,4 +88,20 @@ public class BankingSystem {
         }
     }
 
+    public static void withdraw(Scanner scan){
+        System.out.print("Enter account number:");
+        int number = scan.nextInt();
+
+        for(int i=0; i<account_number.length; i++){
+            if(account_number[i] == number){
+                System.out.print("Enter withdraw money:");
+                double amount = scan.nextDouble();
+                new_amount[i] -= amount;
+                System.out.println(" New Balance: " + new_amount[i]);
+                break;
+
+            }
+        }
+    }
+
 }
