@@ -37,6 +37,17 @@ public class BankingSystem {
                 case 4:
                     checkBalance(scan);
                     break;
+                case 5:
+                    applyLoan(scan);
+                    break;
+                case 6:
+                    viewLoanDetails(scan);
+                    break;
+                case 7:
+                    transferFunds(scan);
+                    break;
+                default:
+                    System.out.println("invalid choice");
             }
         }
     }
@@ -149,5 +160,33 @@ public class BankingSystem {
                 break;
             }
         }
+    }
+
+    public static void transferFunds(Scanner scan){
+        System.out.print("Enter account number (sender):");
+        int sender_no = scan.nextInt();
+        int position = 0;
+
+        for (int i =0; i<account_number.length; i++){
+            if(account_number[i] == sender_no){
+                position = i;
+                break;
+            }
+        }
+
+        System.out.print("Enter account number (receiver):");
+        int receiver_no = scan.nextInt();
+        int index = 0;
+
+        for (int i =0; i<account_number.length; i++){
+            if(account_number[i] == sender_no){
+                index = i;
+                break;
+            }
+        }
+        System.out.print("Enter amount to transfer: ");
+        double amount = scan.nextDouble();
+        account_balance[position] -= amount;
+        account_balance[index] += amount;
     }
 }
