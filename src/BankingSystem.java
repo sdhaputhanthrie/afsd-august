@@ -4,7 +4,7 @@ public class BankingSystem {
     static int[] account_number = new int[0];
     static String[]  account_type = new  String[0];
     static double[] account_balance = new double[0];
-    static double[] loan_amounts = new double[0];
+    static double[] loan_amount = new double[0];
 
 
 
@@ -37,6 +37,17 @@ public class BankingSystem {
                 case 4:
                     checkBalance(scan);
                     break;
+                case 5:
+                    applyLoan(scan);
+                    break;
+                case 6:
+                    viewLoanDetails(scan);
+                    break;
+                case 7:
+                    transferFunds(scan);
+                    break;
+                default:
+                    System.out.println("invalid choice");
             }
         }
     }
@@ -133,11 +144,49 @@ public class BankingSystem {
             if(account_number[i] == number){
                 System.out.print("Enter loan Amount:");
                 double amount = scan.nextDouble();
-                loan_amounts[i] = amount;
-
+                loan_amount[i] = amount;
+                break;
             }
         }
     }
 
+    public static void viewLoanDetails(Scanner scan) {
+        System.out.print("Enter account number:");
+        int number = scan.nextInt();
 
+        for (int i = 0; i < account_number.length; i++) {
+            if (loan_amount[i] == number) {
+                System.out.println("you're balance is:" + loan_amount[i]);
+                break;
+            }
+        }
+    }
+
+    public static void transferFunds(Scanner scan){
+        System.out.print("Enter account number (sender):");
+        int sender_no = scan.nextInt();
+        int position = 0;
+
+        for (int i =0; i<account_number.length; i++){
+            if(account_number[i] == sender_no){
+                position = i;
+                break;
+            }
+        }
+
+        System.out.print("Enter account number (receiver):");
+        int receiver_no = scan.nextInt();
+        int index = 0;
+
+        for (int i =0; i<account_number.length; i++){
+            if(account_number[i] == sender_no){
+                index = i;
+                break;
+            }
+        }
+        System.out.print("Enter amount to transfer: ");
+        double amount = scan.nextDouble();
+        account_balance[position] -= amount;
+        account_balance[index] += amount;
+    }
 }
