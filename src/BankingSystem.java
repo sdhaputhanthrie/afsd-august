@@ -4,6 +4,8 @@ public class BankingSystem {
     static int[] account_number = new int[0];
     static String[]  account_type = new  String[0];
     static double[] account_balance = new double[0];
+    static double[] loan_amounts = new double[0];
+
 
 
 
@@ -33,7 +35,7 @@ public class BankingSystem {
                     withdraw(scan);
                     break;
                 case 4:
-                    check_balance(scan);
+                    checkBalance(scan);
                     break;
             }
         }
@@ -111,7 +113,7 @@ public class BankingSystem {
         }
     }
 
-    public static void check_balance(Scanner scan){
+    public static void checkBalance(Scanner scan){
         System.out.print("Enter account number");
         int number = scan.nextInt();
 
@@ -122,4 +124,20 @@ public class BankingSystem {
             }
         }
     }
+
+    public static void applyLoan(Scanner scan){
+        System.out.print("Enter account number:");
+        int number = scan.nextInt();
+
+        for(int i=0; i<account_number.length; i++){
+            if(account_number[i] == number){
+                System.out.print("Enter loan Amount:");
+                double amount = scan.nextDouble();
+                loan_amounts[i] = amount;
+
+            }
+        }
+    }
+
+
 }
