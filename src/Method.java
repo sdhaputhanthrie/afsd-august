@@ -9,6 +9,8 @@ public class Method {
         get_total();
         check_value();
         check_value2(12); // 12 - argument1
+        String name = find_odd_even(16); // return method
+
     }
     //method
     //void - return type
@@ -38,4 +40,13 @@ public class Method {
             System.out.println("number ia odd");
         }
     }
-}
+    //return method
+    public static String find_odd_even(int num){
+        if(num % 2 == 0){
+            return "Even";
+        }else{
+            return "odd";
+        }
+    }
+    }
+
