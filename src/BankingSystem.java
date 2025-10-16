@@ -4,7 +4,7 @@ public class BankingSystem {
     static int[] account_number = new int[0];
     static String[]  account_type = new  String[0];
     static double[] account_balance = new double[0];
-    static double[] new_amount = new double[0];
+
 
 
     public static void main(String[] args){
@@ -28,6 +28,13 @@ public class BankingSystem {
                     break;
                 case 2:
                     deposit(scan);
+                    break;
+                case 3:
+                    withdraw(scan);
+                    break;
+                case 4:
+                    check_balance(scan);
+                    break;
             }
         }
     }
@@ -80,8 +87,8 @@ public class BankingSystem {
             if(account_number[i] == number){
                 System.out.print("Enter deposit money:");
                 double amount = scan.nextDouble();
-                new_amount[i] += amount;
-                System.out.println(" New Balance: " + new_amount[i]);
+                account_balance[i] += amount;
+                System.out.println(" New Balance: " + account_balance[i]);
                 break;
 
             }
@@ -96,12 +103,23 @@ public class BankingSystem {
             if(account_number[i] == number){
                 System.out.print("Enter withdraw money:");
                 double amount = scan.nextDouble();
-                new_amount[i] -= amount;
-                System.out.println(" New Balance: " + new_amount[i]);
+                account_balance[i] -= amount;
+                System.out.println(" New Balance: " + account_balance[i]);
                 break;
 
             }
         }
     }
 
+    public static void check_balance(Scanner scan){
+        System.out.print("Enter account number");
+        int number = scan.nextInt();
+
+        for(int i=0; i<account_number.length; i++){
+            if(account_number[i] == number){
+                System.out.println("you're balance is:" + account_balance[i]);
+                break;
+            }
+        }
+    }
 }
